@@ -1,0 +1,7 @@
+= simple_form_for @todo, html: { class: 'form-horizontal' } do |f|
+  = f.input :value
+  / # = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
+  = f.association :tags, as: :check_boxes
+  .form-actions
+    = f.submit nil, class: 'btn btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), todos_path, class: 'btn'
