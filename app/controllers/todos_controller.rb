@@ -11,6 +11,7 @@ class TodosController < ApplicationController
   end
 
   def new
+    @todo = current_user.todos.build
   end
 
   def edit

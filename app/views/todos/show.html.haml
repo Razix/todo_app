@@ -10,6 +10,12 @@
   %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
   = @todo.user.username
+  %br
+  %br
+  Tags:
+  %ul
+    - @todo.tags.each do |tag|
+      %li.tag-name= tag.name
 
 .form-actions
   = link_to t('.back', default: t("helpers.links.back")), todos_path, class: 'btn'

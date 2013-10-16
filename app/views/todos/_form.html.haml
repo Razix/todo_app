@@ -7,7 +7,7 @@
   .control-group
     = f.label 'Todo tags:', class: 'control-label'
     .controls
-      = f.collection_check_boxes :tag_ids, Tag.all, :id, :name, item_wrapper_class: 'checkbox inline'
+      = f.collection_check_boxes :tag_ids, current_user.tags, :id, :name, item_wrapper_class: 'checkbox inline'
   .form-actions
     = f.submit nil, class: 'btn btn-primary'
     = link_to t('.cancel', default: t("helpers.links.cancel")), todos_path, class: 'btn'

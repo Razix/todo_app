@@ -3,5 +3,6 @@ class Ability
 
   def initialize(user)
     can :manage, Todo, user_id: user.id
+    can :manage, Tag, user_id: user.id
   end
 end
