@@ -1,0 +1,7 @@
+- if @todo.errors.any?
+  #error_explanation
+    .alert.alert-error
+      %h2= "Please correct #{pluralize(@todo.errors.count, "error")} before moving forward:"
+    %ul
+      - @todo.errors.full_messages.each do |msg|
+        %li.submit_errors= msg

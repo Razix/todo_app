@@ -6,14 +6,10 @@
   %strong= model_class.human_attribute_name(:value) + ':'
   %br
   = @todo.value
+%p
+  %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
-  %br
-  %strong
-  - if @todos.exists?
-    Tags:
-    - @todos.each do |todo|
-      - todo.tags.each do |tag|
-        = tag.name
+  = @todo.user.username
 
 .form-actions
   = link_to t('.back', default: t("helpers.links.back")), todos_path, class: 'btn'
