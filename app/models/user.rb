@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   attr_accessor :current_password
   has_many :todos
   has_many :tags
+  has_many :projects
 
   validates :username, presence: true, length: { minimum: 6, maximum: 30 }, uniqueness: { case_sensitive: false }
   validates :phone, presence: true, length: { maximum: 11 }, numericality: { only_integer: true }

@@ -12,6 +12,7 @@ MyTodoApp::Application.routes.draw do
 
   resources :todos
   resources :tags
+  resources :projects
 
 
 

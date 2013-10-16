@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   respond_to :html, :json
+  load_and_authorize_resource
 
   def index
     @tags = current_user.tags
