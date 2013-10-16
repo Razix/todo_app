@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @tags = current_user.tags
+    @tags = current_user.tags.order(:id)
     respond_with @tags
   end
 

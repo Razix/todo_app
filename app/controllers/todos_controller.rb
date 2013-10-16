@@ -1,35 +1,46 @@
 class TodosController < ApplicationController
   respond_to :html, :json
-  load_and_authorize_resource
+  before_filter :load_project
+  before_filter :todo_variable, only: [:show, :edit, :update, :destroy]
 
   def index
-    @todos = current_user.todos
-    respond_with @todos
+    @todos = @project.todos.order(:id)
   end
 
   def show
   end
 
   def new
-    @todo = current_user.todos.build
+    @todo = @project.todos.build
   end
 
   def edit
   end
 
   def create
-    @todo = current_user.todos.new(params[:todo])
+    @todo = @project.todos.new(params[:todo])
     flash[:notice] = 'Todo was successfully created.' if @todo.save
-    respond_with @todo
+    respond_with [@project, @todo]
   end
 
   def update
     flash[:notice] = 'Todo was successfully updated.' if @todo.update_attributes(params[:todo])
-    respond_with @todo
+    respond_with [@project, @todo]
   end
 
   def destroy
     @todo.destroy
-    redirect_to todos_url
+    redirect_to project_todos_url
   end
+
+  private
+
+    def load_project
+      @project = Project.find(params[:project_id])
+    end
+
+    def todo_variable
+      @todo = @project.todos.find(params[:id])
+    end
+
 end

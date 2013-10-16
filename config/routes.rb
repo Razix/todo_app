@@ -3,16 +3,18 @@ MyTodoApp::Application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root :to => 'todos#index'
+      root to: 'projects#index'
     end
     unauthenticated :user do
-      root :to => 'devise/sessions#new'
+      root to: 'devise/sessions#new'
     end
   end
 
-  resources :todos
   resources :tags
-  resources :projects
+  resources :projects do
+    resources :todos
+  end
+
 
 
 

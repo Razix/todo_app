@@ -3,11 +3,11 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @projects = current_user.projects
-    respond_with @projects
+    @projects = current_user.projects.order(:id)
   end
 
   def show
+    @todos = current_user.todos
   end
 
   def new

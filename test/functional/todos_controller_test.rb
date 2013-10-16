@@ -44,6 +44,6 @@ class TodosControllerTest < ActionController::TestCase
       delete :destroy, id: @todo
     end
 
-    assert_redirected_to todos_path
+    assert_redirected_to project_todos_path
   end
 end

@@ -7,17 +7,12 @@
   %br
   = @todo.value
 %p
-  %strong= model_class.human_attribute_name(:user_id) + ':'
-  %br
-  = @todo.user.username
-  %br
-  %br
   Tags:
   %ul
     - @todo.tags.each do |tag|
       %li.tag-name= tag.name
 
 .form-actions
-  = link_to t('.back', default: t("helpers.links.back")), todos_path, class: 'btn'
-  = link_to t('.edit', default: t("helpers.links.edit")), edit_todo_path(@todo), class: 'btn'
-  = link_to t('.destroy', default: t("helpers.links.destroy")), todo_path(@todo), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
+  = link_to t('.back', default: t("helpers.links.back")), project_todos_path(@project), class: 'btn'
+  = link_to t('.edit', default: t("helpers.links.edit")), edit_project_todo_path(@project, @todo), class: 'btn'
+  = link_to t('.destroy', default: t("helpers.links.destroy")), [@project, @todo], method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
