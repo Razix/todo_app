@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :phone, :current_password
   attr_accessor :current_password
-  has_many :todos
   has_many :tags
   has_many :projects
 
