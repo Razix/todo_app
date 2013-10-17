@@ -3,6 +3,15 @@
     = f.label :name, class: 'control-label'
     .controls
       = f.text_field :name, class: 'text_field'
+  .control-group
+    = f.label :image, 'Upload project image', class: 'control-label'
+    .controls
+      = f.file_field :image, class: 'btn btn-file'
+  .control-group
+    = f.label :remote_image_url, 'Or enter file URL', class: 'control-label'
+    .controls
+      = f.text_field :remote_image_url, class: 'text_field'
+      
   .form-actions
     = f.submit nil, class: 'btn btn-primary'
     = link_to t('.cancel', default: t("helpers.links.cancel")), projects_path, class: 'btn'

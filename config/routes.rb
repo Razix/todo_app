@@ -19,6 +19,7 @@ MyTodoApp::Application.routes.draw do
 
   resources :todos, only: [] do
     resources :comments
+    resources :documents
   end
 
 

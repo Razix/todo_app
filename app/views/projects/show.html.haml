@@ -1,17 +1,21 @@
 - model_class = Project
 .page-header
   %h1=t '.title', default: model_class.model_name.human.titleize
-
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @project.name
-%p
-  %strong= model_class.human_attribute_name(:user_id) + ':'
-  %br
-  = @project.user.username
-  %br
-  %br
+.container
+  .row
+    .span3
+      = image_tag @project.image_url(:thumb) if @project.image?
+    .span9
+      %p
+        %strong= model_class.human_attribute_name(:name) + ':'
+        %br
+        = @project.name
+      %p
+        %strong= model_class.human_attribute_name(:user_id) + ':'
+        %br
+        = @project.user.username
+        %br
+        %br
 
 = paginate @todos
 =render 'todos'

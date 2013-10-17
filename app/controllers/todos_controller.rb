@@ -8,6 +8,7 @@ class TodosController < ApplicationController
   end
 
   def show
+    @documents = @todo.documents.order(:id)
     @commentable = @todo
     @comments = @commentable.comments
     @comment = Comment.new
