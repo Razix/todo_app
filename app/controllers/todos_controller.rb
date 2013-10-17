@@ -1,13 +1,16 @@
 class TodosController < ApplicationController
   respond_to :html, :json
   before_filter :load_project
-  before_filter :todo_variable, only: [:show, :edit, :update, :destroy]
+  before_filter :load_todo, only: [:show, :edit, :update, :destroy]
 
   def index
     @todos = @project.todos.order(:id)
   end
 
   def show
+    @commentable = @todo
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def new
@@ -39,7 +42,7 @@ class TodosController < ApplicationController
       @project = Project.find(params[:project_id])
     end
 
-    def todo_variable
+    def load_todo
       @todo = @project.todos.find(params[:id])
     end
 

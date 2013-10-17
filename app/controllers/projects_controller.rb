@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :json, :js
   load_and_authorize_resource
 
   def index
@@ -8,6 +8,9 @@ class ProjectsController < ApplicationController
 
   def show
     @todos = @project.todos.order(:id)
+    @commentable = @project
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def new

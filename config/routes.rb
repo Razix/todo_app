@@ -1,4 +1,5 @@
 MyTodoApp::Application.routes.draw do
+
   devise_for :users, controllers: { registrations: 'registrations' }
 
   devise_scope :user do
@@ -12,9 +13,13 @@ MyTodoApp::Application.routes.draw do
 
   resources :tags
   resources :projects do
-    resources :todos
+    resources :comments
+    resources :todos 
   end
 
+  resources :todos, only: [] do
+    resources :comments
+  end
 
 
 

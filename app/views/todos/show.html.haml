@@ -13,6 +13,16 @@
       - @todo.tags.each do |tag|
         %li.tag-name= tag.name
 
+%br
+%br
+
+%h3 Comments are here:
+%table.table.table-striped.comments
+  %tbody
+    =render @comments
+    
+=render 'comments/form'
+
 .form-actions
   = link_to t('.back', default: t("helpers.links.back")), project_path(@project), class: 'btn'
   = link_to t('.edit', default: t("helpers.links.edit")), edit_project_todo_path(@project, @todo), class: 'btn'
