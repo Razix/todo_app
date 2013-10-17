@@ -30,7 +30,7 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    redirect_to project_todos_url
+    redirect_to project_url(@project)
   end
 
   private

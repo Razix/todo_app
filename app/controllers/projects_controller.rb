@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @todos = current_user.todos
+    @todos = @project.todos.order(:id)
   end
 
   def new
