@@ -16,6 +16,7 @@ class TodosController < ApplicationController
 
   def new
     @todo = @project.todos.build
+    @document = @todo.documents.build
   end
 
   def edit
