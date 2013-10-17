@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'haml'
 gem 'haml-rails'
 gem 'cancan'
+gem 'kaminari'
 
 gem 'pg'
 

@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @projects = current_user.projects.order(:id)
+    @projects = current_user.projects.order(:id).page(params[:page]).per(2)
   end
 
   def show
