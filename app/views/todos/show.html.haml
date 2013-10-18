@@ -1,20 +1,9 @@
 - model_class = Todo
 .page-header
-  %h1=t '.title', default: model_class.model_name.human.titleize
+  %h1= @todo.value
 
-- model_class = Document
-.page-header
-  %h3=t '.title', default: model_class.model_name.human.pluralize.titleize
-%table.table.table-striped.documents
-  %tbody
-    - @documents.each do |document|
-      %tr
-        - if document.document?
-          %td= link_to document.document_identifier, document.document_url, { download: document.document_identifier }
-          %td
-            = link_to t('.destroy', default: t("helpers.links.destroy")), [@todo, document], method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+=render 'documents'
 
-= link_to t('.new', default: t("helpers.links.new")), new_todo_document_path(@todo), class: 'btn btn-primary', id: 'new_attachment', remote: true
 %br
 %br
 
@@ -32,7 +21,7 @@
 %br
 %br
 
-%h3 Comments are here:
+%h3 Comments:
 %table.table.table-striped.comments
   %tbody
     =render @comments

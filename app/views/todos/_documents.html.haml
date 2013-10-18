@@ -1,0 +1,14 @@
+- if @documents.present?
+  - model_class = Document
+  .page-header
+    %h3=t '.title', default: model_class.model_name.human.pluralize.titleize
+  %table.table.table-striped.documents
+    %tbody
+      - @documents.each do |document|
+        %tr
+          - if document.document?
+            %td= link_to document.document_identifier, document.document_url, { download: document.document_identifier }
+            %td
+              = link_to t('.destroy', default: t("helpers.links.destroy")), [@todo, document], method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+= link_to 'Attach document', new_todo_document_path(@todo), class: 'btn btn-primary', id: 'new_attachment', remote: true

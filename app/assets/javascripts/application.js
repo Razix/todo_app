@@ -14,8 +14,3 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-
-$(document).on('click', '#todos th a, #todos .pagination a', function() {
-  $.getScript(this.href);
-  return false;
-});

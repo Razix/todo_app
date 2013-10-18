@@ -1,15 +1,11 @@
 - model_class = Project
 .page-header
-  %h1=t '.title', default: model_class.model_name.human.titleize
+  %h1= @project.name
 .container
   .row
     .span3
       = image_tag @project.image_url(:thumb) if @project.image?
     .span9
-      %p
-        %strong= model_class.human_attribute_name(:name) + ':'
-        %br
-        = @project.name
       %p
         %strong= model_class.human_attribute_name(:user_id) + ':'
         %br
@@ -21,7 +17,7 @@
 %br
 %br
 
-%h3 Comments are here:
+%h3 Comments:
 %table.table.table-striped.comments
   %tbody
     =render @comments
