@@ -1,13 +1,14 @@
 class ProjectsController < ApplicationController
   respond_to :html, :json, :js
   load_and_authorize_resource
+  helper_method :sort_column, :sort_direction
 
   def index
     @projects = current_user.projects.order(:id).page(params[:page]).per(2)
   end
 
   def show
-    @todos = @project.todos.order(:id).page(params[:page]).per(2)
+    @todos = @project.todos.order(sort_column + " " + sort_direction).page(params[:page]).per(5)
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
@@ -35,4 +36,14 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to projects_url
   end
+
+  private
+  
+    def sort_column
+      Todo.column_names.include?(params[:sort]) ? params[:sort] : "id"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
 end

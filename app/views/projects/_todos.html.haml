@@ -4,9 +4,9 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:value)
-      %th= model_class.human_attribute_name(:created_at)
+      %th= sortable 'id'
+      %th= sortable 'value'
+      %th= sortable 'created_at', 'Created at'
       %th=t '.actions', default: t("helpers.actions")
   %tbody
     - @todos.each do |todo|
