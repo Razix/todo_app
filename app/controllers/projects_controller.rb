@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @todos = @project.todos.order(sort_column + " " + sort_direction).page(params[:page]).per(5)
+    @todos = @project.todos.order(sort_column + " " + sort_direction).page(params[:page]).per(2)
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
