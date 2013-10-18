@@ -3,5 +3,4 @@ class Document < ActiveRecord::Base
   attr_accessible :document
   mount_uploader :document, DocumentUploader
   validates :document, presence: true
-  validates :document, uniqueness: true
 end
