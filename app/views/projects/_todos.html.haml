@@ -1,7 +1,9 @@
+= paginate @todos
+
 - model_class = Todo
 .page-header
   %h3=t '.title', default: model_class.model_name.human.pluralize.titleize
-%table.table.table-striped
+%table.table.table-striped.todos
   %thead
     %tr
       %th= sortable 'id'
