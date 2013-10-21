@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 
   def show
     @incomplete_todos = @project.todos.incomplete.page(params[:page]).per(2)
-    @complete_todos = @project.todos.complete.page(params[:page_2]).per(3)
+    @complete_todos = @project.todos.complete.page(params[:page]).per(3)
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
