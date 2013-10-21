@@ -8,9 +8,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @incomplete_todos = @project.todos.incomplete.order(sort_column + " " + sort_direction).page(params[:page]).per(2)
-    @complete_todos = @project.todos.complete
-    # .order(sort_column + " " + sort_direction).page(params[:page]).per(2)
+    @incomplete_todos = @project.todos.incomplete.page(params[:page]).per(2)
+    @complete_todos = @project.todos.complete.page(params[:page_2]).per(3)
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
@@ -39,13 +38,12 @@ class ProjectsController < ApplicationController
     redirect_to projects_url
   end
 
-  private
-  
-    def sort_column
-      Todo.column_names.include?(params[:sort]) ? params[:sort] : "id"
-    end
-    
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
+  def incomplete
+    @incomplete_todos = @project.todos.incomplete.page(params[:page]).per(2)
+  end
+
+  def complete
+    @complete_todos = @project.todos.complete.page(params[:page]).per(3)
+  end
+
 end

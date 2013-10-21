@@ -13,7 +13,10 @@
         %br
         %br
 
-#todos=render 'todos'
+#todos=render 'incomplete'
+#todos=render 'complete'
+
+= link_to 'New todo', new_project_todo_path(@project), class: 'btn btn-primary'
 %br
 %br
 

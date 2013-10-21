@@ -2,15 +2,7 @@
   = f.check_box :completed, class: 'checkbox inline'
   = f.submit 'Update', class: 'btn todos_page'
   = link_to todo.value, project_todo_path(@project, todo)
-  = todo.created_at
+  = t todo.created_at
   
   = link_to t('.edit', default: t("helpers.links.edit")), edit_project_todo_path(@project, todo), class: 'btn btn-mini'
   = link_to t('.destroy', default: t("helpers.links.destroy")), [@project, todo], method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
-
-/ %tbody
-/   =form_for [@project, todo], remote: true do |f|
-/     = f.check_box :completed, class: 'checkbox inline'
-/     = f.submit 'Update', class: 'btn'
-/     = link_to todo.value, project_todo_path(@project, todo)
-
-

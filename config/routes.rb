@@ -15,6 +15,10 @@ MyTodoApp::Application.routes.draw do
   resources :projects do
     resources :comments
     resources :todos 
+    member do
+      get :incomplete
+      get :complete
+    end
   end
 
   resources :todos, only: [] do
