@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :json, :js
   before_filter :load_project
   before_filter :load_todo, only: [:show, :edit, :update, :destroy]
 

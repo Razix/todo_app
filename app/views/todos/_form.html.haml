@@ -14,4 +14,4 @@
       = f.collection_check_boxes :tag_ids, current_user.tags, :id, :name, item_wrapper_class: 'checkbox inline'
   .form-actions
     = f.submit nil, class: 'btn btn-primary'
-    = link_to t('.cancel', default: t("helpers.links.cancel")), project_todos_path(@project), class: 'btn'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), project_path(@project), class: 'btn'
