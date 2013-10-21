@@ -5,6 +5,10 @@
     .controls
       = f.text_field :value, class: 'text_field'
   .control-group
+    = f.label 'Check if completed:'
+    .controls
+      = f.check_box :completed, class: 'checkbox inline'
+  .control-group
     = f.label 'Todo tags:', class: 'control-label'
     .controls
       = f.collection_check_boxes :tag_ids, current_user.tags, :id, :name, item_wrapper_class: 'checkbox inline'

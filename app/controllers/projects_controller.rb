@@ -8,7 +8,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @todos = @project.todos.order(sort_column + " " + sort_direction).page(params[:page]).per(2)
+    @incomplete_todos = @project.todos.incomplete
+    # .order(sort_column + " " + sort_direction).page(params[:page]).per(2)
+    @complete_todos = @project.todos.complete
+    # .order(sort_column + " " + sort_direction).page(params[:page]).per(2)
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
@@ -28,6 +31,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @todo = @project.todos.find(params[:id])
+    @todo.update_attributes!(params[:todo])
     flash[:notice] = 'Project was successfully updated.' if @project.update_attributes(params[:project])
     respond_with @project
   end
