@@ -11,11 +11,15 @@ gem 'carrierwave'
 gem 'pg'
 
 group :assets do
-  gem "therubyracer"
-  gem "less-rails"
+  gem 'therubyracer'
+  gem 'less-rails'
   gem 'twitter-bootstrap-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  gem 'quiet_assets'
 end
 
 gem 'jquery-rails'

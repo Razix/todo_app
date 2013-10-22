@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   respond_to :html, :json, :js
   load_and_authorize_resource
-  helper_method :sort_column, :sort_direction
 
   def index
     @projects = current_user.projects.order(:id).page(params[:page]).per(2)

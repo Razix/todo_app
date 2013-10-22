@@ -1,3 +1,3 @@
-$(document).on "click", "#todos th a, #paginator a", ->
+$(document).on "click", "#paginator a", ->
   $.getScript @href
   false

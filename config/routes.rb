@@ -14,7 +14,7 @@ MyTodoApp::Application.routes.draw do
   resources :tags
   resources :projects do
     resources :comments
-    resources :todos 
+    resources :todos
   end
 
   resources :todos, only: [] do
