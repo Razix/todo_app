@@ -3,12 +3,12 @@
     = f.label :name, class: 'control-label'
     .controls
       = f.text_field :name, class: 'text_field'
-  .control-group
-    = f.label :image, 'Upload project image', class: 'control-label'
+  .control-group.project_image_container
+    = f.label :image, 'From local source', class: 'control-label'
     .controls
       = f.file_field :image, class: 'btn btn-file'
-  .control-group
-    = f.label :remote_image_url, 'Or enter file URL', class: 'control-label'
+  .control-group.project_image_url_container
+    = f.label :remote_image_url, 'Using external URL', class: 'control-label'
     .controls
       = f.text_field :remote_image_url, class: 'text_field'
   .form-actions
