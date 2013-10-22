@@ -35,7 +35,7 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    redirect_to project_url(@project)
+    respond_with [@project, @todo]
   end
 
   private
