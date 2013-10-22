@@ -9,7 +9,7 @@
       %p
         %strong= model_class.human_attribute_name(:user_id) + ':'
         %br
-        = @project.user.username
+        = @project.user.try :username
         %br
         %br
 
