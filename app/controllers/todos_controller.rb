@@ -9,8 +9,7 @@ class TodosController < ApplicationController
 
   def show
     @documents = @todo.documents.order(:id)
-    @commentable = @todo
-    @comments = @commentable.comments
+    @comments = @todo.comments
     @comment = Comment.new
   end
 

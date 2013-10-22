@@ -22,7 +22,7 @@
   %tbody
     =render @comments
 
-=render 'comments/form'
+=render 'comments/form', parent: @project, comment: @comment
 
 .form-actions
   = link_to t('.back', default: t("helpers.links.back")), projects_path, class: 'btn'
