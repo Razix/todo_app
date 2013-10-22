@@ -7,6 +7,9 @@ gem 'cancan'
 gem 'kaminari'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'carrierwave_direct'
+gem 'sidekiq'
+gem 'fog'
 
 gem 'pg'
 
