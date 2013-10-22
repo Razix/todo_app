@@ -8,8 +8,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @incomplete_todos = @project.todos.incomplete.page(params[:page]).per(2)
-    @complete_todos = @project.todos.complete.page(params[:page]).per(3)
+    @incomplete_todos = @project.todos.incomplete.page(params[:incompleted]).per(2)
+    @complete_todos = @project.todos.complete.page(params[:completed]).per(3)
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
@@ -36,14 +36,6 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     redirect_to projects_url
-  end
-
-  def incomplete
-    @incomplete_todos = @project.todos.incomplete.page(params[:page]).per(2)
-  end
-
-  def complete
-    @complete_todos = @project.todos.complete.page(params[:page]).per(3)
   end
 
 end

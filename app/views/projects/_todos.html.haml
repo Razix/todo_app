@@ -1,0 +1,13 @@
+#paginator
+  = paginate @incomplete_todos, param_name: :incompleted
+%h2 Incomplete todos
+#incomplete_todos.todos
+  =render @incomplete_todos
+
+#paginator
+  = paginate @complete_todos, param_name: :completed
+%h2 Complete todos
+#complete_todos.todos
+  =render @complete_todos
+
+= link_to 'New todo', new_project_todo_path(@project), class: 'btn btn-primary'
