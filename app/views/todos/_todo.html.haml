@@ -1,6 +1,12 @@
 =form_for [@project, todo], remote: true do |f|
-  = f.check_box :completed, class: 'checkbox inline'
-  = link_to todo.value, project_todo_path(@project, todo)
-  = t todo.created_at
-  = link_to t('.edit', default: t("helpers.links.edit")), edit_project_todo_path(@project, todo), class: 'btn btn-mini'
-  = link_to t('.destroy', default: t("helpers.links.destroy")), [@project, todo], method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, remote: true, class: 'btn btn-mini btn-danger'
+  .container
+    .row
+      .span2
+        = f.check_box :completed, class: 'checkbox inline'
+      .span3
+        = link_to todo.value, project_todo_path(@project, todo)
+      .span3
+        = t todo.created_at
+      .span3
+        = link_to t('.edit', default: t("helpers.links.edit")), edit_project_todo_path(@project, todo), class: 'btn btn-mini'
+        = link_to t('.destroy', default: t("helpers.links.destroy")), [@project, todo], method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, remote: true, class: 'btn btn-mini btn-danger'
