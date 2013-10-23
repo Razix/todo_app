@@ -37,12 +37,6 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
-    carrierwave_direct (0.0.13)
-      carrierwave
-      fog
-      uuidtools
-    celluloid (0.15.2)
-      timers (~> 1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -51,7 +45,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     commonjs (0.2.7)
-    connection_pool (1.1.0)
     devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -137,18 +130,9 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    redis (3.0.5)
-    redis-namespace (1.3.1)
-      redis (~> 3.0.0)
     ref (1.0.5)
     rmagick (2.13.2)
     ruby-hmac (0.4.0)
-    sidekiq (2.15.2)
-      celluloid (>= 0.15.2)
-      connection_pool (>= 1.0.0)
-      json
-      redis (>= 3.0.4)
-      redis-namespace (>= 1.3.1)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -164,7 +148,6 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
-    timers (1.1.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -178,7 +161,6 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode (0.4.4)
-    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -188,7 +170,6 @@ PLATFORMS
 DEPENDENCIES
   cancan
   carrierwave
-  carrierwave_direct
   coffee-rails (~> 3.2.1)
   devise
   fog
@@ -201,7 +182,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 3.2.13)
   rmagick
-  sidekiq
   simple_form
   therubyracer
   twitter-bootstrap-rails
