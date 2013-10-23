@@ -28,3 +28,4 @@ gem 'jquery-rails'
 gem 'simple_form'
 
 gem 'devise'
+gem 'omniauth-twitter'
