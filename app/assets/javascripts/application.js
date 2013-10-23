@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(function() {
+  $('#project_remote_image_url').prop('disabled', true);
+  $('.radio').on('change', 'input', function() {
+    if ($('#project_image_local').prop('checked') == true) {
+      $('#project_remote_image_url').prop('disabled', true);
+      $('#project_image').prop('disabled', false);
+    }
+    else {
+      $('#project_remote_image_url').prop('disabled', false);
+      $('#project_image').prop('disabled', true);
+    }
+  });
+});
