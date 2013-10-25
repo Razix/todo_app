@@ -3,11 +3,15 @@
     = f.label :name, class: 'control-label'
     .controls
       = f.text_field :name, class: 'text_field'
-  .radio
-    = f.label :image, 'From local source', value: 'local', class: 'checkbox-inline'
-    = f.radio_button :image, 'local', checked: true, class: 'checkbox-inline'
-    = f.label :image, 'Using external URL', value: 'external', class: 'checkbox-inline'
-    = f.radio_button :image, 'external', class: 'checkbox-inline'
+  .control-group
+    .radio
+      .controls
+        = radio_button_tag :image, 'local', checked: true, class: 'radio-inline'
+        = label_tag :image, 'From local source', for: 'image_local'
+    .radio
+      .controls
+        = radio_button_tag :image, 'external'
+        = label_tag :image, 'Using external URL', for: 'image_external'
   .control-group
     = f.label :image, 'From local source', class: 'control-label'
     .controls

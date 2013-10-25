@@ -18,7 +18,7 @@
 $(function() {
   $('#project_remote_image_url').prop('disabled', true);
   $('.radio').on('change', 'input', function() {
-    if ($('#project_image_local').prop('checked') == true) {
+    if ($('#image_local').prop('checked') == true) {
       $('#project_remote_image_url').prop('disabled', true);
       $('#project_image').prop('disabled', false);
     }
