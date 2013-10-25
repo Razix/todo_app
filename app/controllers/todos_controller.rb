@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  respond_to :html, :json, :js
+  respond_to :html, :json
   before_filter :load_project
   before_filter :load_todo, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +24,7 @@ class TodosController < ApplicationController
   def create
     @todo = @project.todos.new(params[:todo])
     flash[:notice] = 'Todo was successfully created.' if @todo.save
-    respond_with [@project, @todo]
+    respond_with @todo, location: @project
   end
 
   def update
